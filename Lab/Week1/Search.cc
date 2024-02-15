@@ -49,14 +49,13 @@ int main()
 
   int num;
   std::cin >> num;
+  std::vector<int> nums;
 
-  if (testSizeFile.is_open())
+  while (testSizeFile >> testSize)
   {
-    for (int i = 1; i <= num; i++)
-    {
-      testSizeFile >> testSize;
-    }
+    nums.push_back(testSize);
   }
+
   std::cout << "Test Size: " << testSize << std::endl;
   // Parse the File
   int arr;
@@ -83,24 +82,36 @@ int main()
   int ele;
   std::cin >> ele;
 
-  // Time Setup
   clock_t tStart = clock();
+  int rL = linear_search(numbers, ele);
+  double tEnd = (double)(clock() - tStart) / CLOCKS_PER_SEC;
 
-  int j = linear_search(numbers, ele);
-  std::cout << std::endl
-            << "LS Pos: " << j << std::endl;
-  double t1 = (double)(clock() - tStart) / CLOCKS_PER_SEC;
+  tStart = clock();
+  int rB = binary_search(numbers, ele);
+  tEnd = (double)(clock() - tStart) / CLOCKS_PER_SEC;
 
-  int k = binary_search(numbers, ele);
-  std::cout << std::endl
-            << "BS Pos: " << k << std::endl;
-  double t2 = (double)(clock() - tStart) / CLOCKS_PER_SEC;
+  std::cout << "L/B Input Pos Time (s)" << std::endl;
+  std::cout << "L   " << ele << " " << rL << " " << tEnd << std::endl;
+  std::cout << "B   " << ele << " " << rB << " " << tEnd << std::endl;
 
+  // Time Setup
   std::ofstream linearFile("linearSearchResult.txt");
   linearFile << "Input Pos Time (s)" << std::endl;
-  linearFile << ele << " " << j << " " << t1 << std::endl;
+  for (int i; i < nums.size(); i++)
+  {
+    clock_t tStart = clock();
+    int j = linear_search(numbers, nums[i]);
+    double tEnd = (double)(clock() - tStart) / CLOCKS_PER_SEC;
+    linearFile << nums[i] << " " << j << " " << tEnd << std::endl;
+  }
 
   std::ofstream binaryFile("binarySearchResult.txt");
   binaryFile << "Input Pos Time (s)" << std::endl;
-  binaryFile << ele << " " << j << " " << t1 << std::endl;
+  for (int i; i < nums.size(); i++)
+  {
+    clock_t tStart = clock();
+    int j = binary_search(numbers, nums[i]);
+    double tEnd = (double)(clock() - tStart) / CLOCKS_PER_SEC;
+    binaryFile << nums[i] << " " << j << " " << tEnd << std::endl;
+  }
 }
