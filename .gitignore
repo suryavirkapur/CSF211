@@ -1,3 +1,10 @@
-a.out
-Content.dat
-*.out
+*/*         #ignore all files in each directory
+!*/*.c      #unignore .c files in each directory 
+!*/*.h      #unignore .h header files in each directory
+!.gitignore #unignore .gitignore
+!*.md
+!*/*.md
+!*/*.json
+!*/*.dat
+!*/*.out
+!*/*.in!*/*.txt

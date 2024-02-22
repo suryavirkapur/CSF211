@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <stack>
 
 #define MAX_SIZE 5
 // Define a struct to represent a node in the stack
