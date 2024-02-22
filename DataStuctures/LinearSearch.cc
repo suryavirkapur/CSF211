@@ -1,3 +1,4 @@
+
 int linear_search(std::vector<int> v, int a)
 {
   for (int i = 0; i < v.size(); i++)

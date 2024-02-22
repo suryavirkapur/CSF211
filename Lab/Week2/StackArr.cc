@@ -69,16 +69,6 @@ std::string top(Stack *stack)
   }
 }
 
-// int main()
-// {
-//   Stack stack;
-//   initialize(&stack);
-
-//   push(&stack, "Something");
-//   std::cout << top(&stack) << std::endl;
-//   return 0;
-// }
-
 int main()
 {
   // File Handles
