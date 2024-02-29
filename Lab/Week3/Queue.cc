@@ -2,13 +2,13 @@
 #include <string>
 #define SIZE 5
 
-struct
+struct Student
 {
   int ID;
   std::string name;
   std::string DOB;
   int CGPA;
-} Student;
+};
 
 class Queue
 {
@@ -102,8 +102,8 @@ public:
       std::cout << std::endl
                 << "Items -> ";
       for (i = front; i != rear; i = (i + 1) % SIZE)
-        std::cout << items[i];
-      std::cout << items[i];
+        std::cout << s[i];
+      std::cout << s[i];
       std::cout << std::endl
                 << "Rear -> " << rear;
     }
