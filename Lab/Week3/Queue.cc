@@ -44,7 +44,7 @@ public:
       return false;
   }
   // Adding an element
-  void enQueue(int element)
+  void enQueue(Student element)
   {
     if (isFull())
     {
@@ -57,17 +57,17 @@ public:
       rear = (rear + 1) % SIZE;
       s[rear] = element;
       std::cout << std::endl
-                << "Inserted " << element << std::endl;
+                << "Inserted " << element.name << std::endl;
     }
   }
   // Removing an element
-  int deQueue()
+  Student deQueue()
   {
-    int element;
+    Student element;
     if (isEmpty())
     {
       std::cout << "Queue is empty" << std::endl;
-      return (-1);
+      return element;
     }
     else
     {
@@ -102,8 +102,8 @@ public:
       std::cout << std::endl
                 << "Items -> ";
       for (i = front; i != rear; i = (i + 1) % SIZE)
-        std::cout << s[i];
-      std::cout << s[i];
+        std::cout << s[i].name;
+      std::cout << s[i].name;
       std::cout << std::endl
                 << "Rear -> " << rear;
     }
@@ -117,30 +117,32 @@ int main()
   // Fails because front = -1
   q.deQueue();
 
-  q.enQueue(1);
-  q.enQueue(2);
-  q.enQueue(3);
-  q.enQueue(4);
-  q.enQueue(5);
+  Student A;
+  q.enQueue();
+  // q.enQueue(1);
+  // q.enQueue(2);
+  // q.enQueue(3);
+  // q.enQueue(4);
+  // q.enQueue(5);
 
-  // Fails to enqueue because front == 0 && rear == SIZE - 1
-  q.enQueue(6);
+  // // Fails to enqueue because front == 0 && rear == SIZE - 1
+  // q.enQueue(6);
 
-  q.display();
+  // q.display();
 
-  int elem = q.deQueue();
+  // int elem = q.deQueue();
 
-  if (elem != -1)
-    std::cout << std::endl
-              << "Deleted Element is " << elem;
+  // if (elem != -1)
+  //   std::cout << std::endl
+  //             << "Deleted Element is " << elem;
 
-  q.display();
+  // q.display();
 
-  q.enQueue(7);
-  q.display();
+  // q.enQueue(7);
+  // q.display();
 
-  // Fails to enqueue because front == rear + 1
-  q.enQueue(8);
+  // // Fails to enqueue because front == rear + 1
+  // q.enQueue(8);
 
   return 0;
 }
