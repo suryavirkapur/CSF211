@@ -59,8 +59,9 @@ public:
         front = 0;
       rear = (rear + 1) % SIZE;
       s[rear] = element;
-      std::cout << std::endl
-                << "Inserted " << element.name << std::endl;
+      std::cout
+          << "Inserted " << element.name << std::endl;
+      std::cout << "Front" << front << " Rear" << rear << std::endl;
     }
   }
   // Removing an element
