@@ -98,14 +98,15 @@ public:
     }
     else
     {
-      std::cout << "Front -> " << front;
-      std::cout << std::endl
-                << "Items -> ";
+      std::cout << "Front -> " << front << std::endl;
+      std::cout
+          << "Items -> ";
       for (i = front; i != rear; i = (i + 1) % SIZE)
-        std::cout << s[i].name;
-      std::cout << s[i].name;
-      std::cout << std::endl
-                << "Rear -> " << rear;
+        std::cout << s[i].name << " ";
+      std::cout
+          << s[i].name << std::endl;
+      std::cout
+          << "Rear -> " << rear << std::endl;
     }
   }
 };
@@ -118,31 +119,19 @@ int main()
   q.deQueue();
 
   Student A;
-  q.enQueue();
-  // q.enQueue(1);
-  // q.enQueue(2);
-  // q.enQueue(3);
-  // q.enQueue(4);
-  // q.enQueue(5);
+  A.name = "Suryavir Kapur";
+  A.CGPA = 10;
+  A.DOB = "16-08-2004";
+  A.ID = 293;
 
-  // // Fails to enqueue because front == 0 && rear == SIZE - 1
-  // q.enQueue(6);
-
-  // q.display();
-
-  // int elem = q.deQueue();
-
-  // if (elem != -1)
-  //   std::cout << std::endl
-  //             << "Deleted Element is " << elem;
-
-  // q.display();
-
-  // q.enQueue(7);
-  // q.display();
-
-  // // Fails to enqueue because front == rear + 1
-  // q.enQueue(8);
-
+  q.enQueue(A);
+  Student B;
+  B.name = "Karanvir Kapur";
+  B.CGPA = 10;
+  B.DOB = "16-08-2003";
+  B.ID = 777;
+  q.enQueue(B);
+  q.display();
+  std::cout << q.deQueue().name << std::endl;
   return 0;
 }
