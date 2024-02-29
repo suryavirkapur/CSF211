@@ -1,13 +1,16 @@
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <sstream>
+
 #define SIZE 5
 
 struct Student
 {
-  int ID;
+  std::string ID;
   std::string name;
   std::string DOB;
-  int CGPA;
+  std::string CGPA;
 };
 
 class Queue
@@ -102,7 +105,9 @@ public:
       std::cout
           << "Items -> ";
       for (i = front; i != rear; i = (i + 1) % SIZE)
+      {
         std::cout << s[i].name << " ";
+      }
       std::cout
           << s[i].name << std::endl;
       std::cout
@@ -118,20 +123,35 @@ int main()
   // Fails because front = -1
   q.deQueue();
 
-  Student A;
-  A.name = "Suryavir Kapur";
-  A.CGPA = 10;
-  A.DOB = "16-08-2004";
-  A.ID = 293;
+  // File Handle
+  std::ifstream inFile("student.in");
+  std::string line;
+  while (std::getline(inFile, line))
+  {
+    std::stringstream str_stream(line);
 
-  q.enQueue(A);
-  Student B;
-  B.name = "Karanvir Kapur";
-  B.CGPA = 10;
-  B.DOB = "16-08-2003";
-  B.ID = 777;
-  q.enQueue(B);
+    Student S;
+
+    str_stream >> S.ID;
+    str_stream >> S.name;
+    str_stream >> S.DOB;
+    str_stream >> S.CGPA;
+
+    q.enQueue(S);
+  }
+
   q.display();
-  std::cout << q.deQueue().name << std::endl;
+
+  std::ofstream outFile("student.out");
+
+  // Print all to File
+  while (!q.isEmpty())
+  {
+    Student s = q.deQueue();
+    outFile
+        << s.ID << " " << s.name << " " << s.DOB << " " << s.CGPA << std::endl;
+    std::cout
+        << s.ID << " " << s.name << " " << s.DOB << " " << s.CGPA << std::endl;
+  }
   return 0;
 }
