@@ -33,7 +33,7 @@ public:
     if (position == 1)
     {
       newStudent->next = head;
-      head = newStudent;
+      ` head = newStudent;
     }
     else
     {
