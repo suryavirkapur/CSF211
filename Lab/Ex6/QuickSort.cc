@@ -86,7 +86,7 @@ int main()
               << ", CGPA: " << student.cgpa << std::endl;
   }
 
-  std::cout << "\nSorting Records..." << std::endl;
+  std::cout << "\nSorting Records:" << std::endl;
 
   auto start = std::chrono::high_resolution_clock::now();
   quickSort(records, 0, records.size() - 1);
