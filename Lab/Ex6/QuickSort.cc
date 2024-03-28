@@ -39,7 +39,7 @@ std::vector<Student> generateRandomRecords(int numRecords)
 
 int partition(std::vector<Student> &records, int low, int high)
 {
-  std::string pivot = records[high].name;
+  std::string pivot = records[std::rand() * sizeof(names) / sizeof(names[0])].name;
   int i = low - 1;
 
   for (int j = low; j < high; j++)
@@ -52,7 +52,6 @@ int partition(std::vector<Student> &records, int low, int high)
   }
 
   std::swap(records[i + 1], records[high]);
-
   return i + 1;
 }
 
