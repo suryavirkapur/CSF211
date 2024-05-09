@@ -56,7 +56,8 @@
     "vector": "cpp",
     "algorithm": "cpp",
     "deque": "cpp",
-    "stack": "cpp"
+    "stack": "cpp",
+    "execution": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }
