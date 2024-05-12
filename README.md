@@ -1,7 +1,5 @@
 # CSF211
 
-Here is a cheat sheet on the topics covered in the lab exercises from 1 to 9 in C++:
-
 **Searching Algorithms**
 
 * **Linear Search**: Iterate through an array and check each element until the target element is found.
@@ -310,4 +308,3 @@ public:
     int search(int key);
 };
 ```
-Note: This is not an exhaustive implementation of all the topics, but rather a concise cheat sheet to help you remember the key concepts and implementation details.
