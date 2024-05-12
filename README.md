@@ -258,9 +258,16 @@ void heapSort(int arr[], int n) {
     }
 }
 ```
-**7 Stack and Queue Implementation using Linked List**
+**7 Stack Implementation using Linked List**
 
-* **Stack**:
+* **Node structure**:
+```cpp
+struct Node {
+    int data;
+    Node* next;
+};
+```
+* **Stack structure**:
 ```cpp
 class Stack {
     Node* top;
@@ -272,7 +279,55 @@ public:
     bool isEmpty();
 };
 ```
-* **Queue**:
+* **Push**:
+```cpp
+void Stack::push(int data) {
+    Node* newNode = new Node();
+    newNode->data = data;
+    newNode->next = top;
+    top = newNode;
+}
+```
+* **Pop**:
+```cpp
+int Stack::pop() {
+    if (isEmpty()) {
+        cout << "Stack underflow!" << endl;
+        return -1;
+    }
+    int data = top->data;
+    Node* temp = top;
+    top = top->next;
+    delete temp;
+    return data;
+}
+```
+* **Top Element**:
+```cpp
+int Stack::topElement() {
+    if (isEmpty()) {
+        cout << "Stack is empty!" << endl;
+        return -1;
+    }
+    return top->data;
+}
+```
+* **Is Empty**:
+```cpp
+bool Stack::isEmpty() {
+    return top == nullptr;
+}
+```
+**8 Queue Implementation using Linked List**
+
+* **Node structure**:
+```cpp
+struct Node {
+    int data;
+    Node* next;
+};
+```
+* **Queue structure**:
 ```cpp
 class Queue {
     Node* front, *rear;
@@ -284,7 +339,54 @@ public:
     bool isEmpty();
 };
 ```
-**8 Hashing**
+* **Enqueue**:
+```cpp
+void Queue::enqueue(int data) {
+    Node* newNode = new Node();
+    newNode->data = data;
+    newNode->next = nullptr;
+    if (isEmpty()) {
+        front = rear = newNode;
+    } else {
+        rear->next = newNode;
+        rear = newNode;
+    }
+}
+```
+* **Dequeue**:
+```cpp
+int Queue::dequeue() {
+    if (isEmpty()) {
+        cout << "Queue is empty!" << endl;
+        return -1;
+    }
+    int data = front->data;
+    Node* temp = front;
+    front = front->next;
+    delete temp;
+    if (front == nullptr) {
+        rear = nullptr;
+    }
+    return data;
+}
+```
+* **Front Element**:
+```cpp
+int Queue::frontElement() {
+    if (isEmpty()) {
+        cout << "Queue is empty!" << endl;
+        return -1;
+    }
+    return front->data;
+}
+```
+* **Is Empty**:
+```cpp
+bool Queue::isEmpty() {
+    return front == nullptr;
+}
+```
+**9 Hashing**
 
 * **Hash Function**:
 ```cpp
@@ -307,4 +409,27 @@ public:
     void insert(int key);
     int search(int key);
 };
+```
+* **Insert**:
+```cpp
+void HashTable::insert(int key) {
+    int index = hashFunction(key, tableSize);
+    if (table[index] == -1) {
+        table[index] = key;
+    } else {
+        // handle collision
+    }
+}
+```
+* **Search**:
+```cpp
+int HashTable::search(int key) {
+    int index = hashFunction(key, tableSize);
+    if (table[index] == key) {
+        return index;
+    } else {
+        // handle collision
+    }
+    return -1; // not found
+}
 ```
