@@ -1,6 +1,6 @@
 # CSF211
 
-**Searching Algorithms**
+**1 Searching Algorithms**
 
 * **Linear Search**: Iterate through an array and check each element until the target element is found.
 ```cpp
@@ -30,7 +30,7 @@ int binarySearch(int arr[], int target, int n) {
     return -1; // not found
 }
 ```
-**Singly Linked List**
+**2 Singly Linked List**
 
 * **Node structure**:
 ```cpp
@@ -58,7 +58,7 @@ void traverse(Node* head) {
     cout << endl;
 }
 ```
-**Stack Operations (using array implementation)**
+**3 Stack Operations (using array implementation)**
 
 * **Stack structure**:
 ```cpp
@@ -109,7 +109,7 @@ bool Stack::isEmpty() {
     return top == -1;
 }
 ```
-**Queue Operations (using array implementation)**
+**5 Queue Operations (using array implementation)**
 
 * **Queue structure**:
 ```cpp
@@ -163,7 +163,7 @@ bool Queue::isEmpty() {
     return front == rear;
 }
 ```
-**Sorting Algorithms**
+**6 Sorting Algorithms**
 
 * **Quick Sort**:
 ```cpp
@@ -258,7 +258,7 @@ void heapSort(int arr[], int n) {
     }
 }
 ```
-**Stack and Queue Implementation using Linked List**
+**7 Stack and Queue Implementation using Linked List**
 
 * **Stack**:
 ```cpp
@@ -284,7 +284,7 @@ public:
     bool isEmpty();
 };
 ```
-**Hashing**
+**8 Hashing**
 
 * **Hash Function**:
 ```cpp
